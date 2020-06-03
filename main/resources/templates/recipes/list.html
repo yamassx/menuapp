@@ -6,7 +6,7 @@
       layout:decorate="~{layout/layout}">
 <head>
   <meta charset="UTF-8">
-  <title th:text="#{recipe.list}">ユーザ一覧</title>
+  <title th:text="#{recipe.list}">レシピ一覧</title>
 
   <style>
     table {
@@ -22,7 +22,7 @@
 <body>
 
 <div layout:fragment="content">
-  <h2 th:text="#{recipe.list}">ユーザ一覧</h2>
+  <h2 th:text="#{recipe.list}">レシピ一覧</h2>
 
   <table>
     <thead>
@@ -38,10 +38,10 @@
       <td th:text="*{recipe_id}"></td>
       <td th:text="*{recipe_name}"></td>
       <td th:text="*{cal}"></td>
-<!--       <td>
-        <a th:href="@{'/recipess/update/' + *{recipe_id}}" th:text="#{update}">更新</a>
+       <td>
+        <a th:href="@{'/recipes/update/' + *{recipe_id}}" th:text="#{update}">更新</a>
       </td>
- -->    </tr>
+   </tr>
     </tbody>
   </table>
 </div>
