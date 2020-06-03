@@ -71,7 +71,8 @@ public class RecipeController {
 		Recipe recipe = recipeservice.findBy(id);
 		recipe.setName(recipeForm.getName());
 		recipe.setCal(recipeForm.getCal());
+		Recipe updatedRecipe = recipeservice.update(recipe);
 		
-		return "redirect:/recipes/update" + id;
+		return "redirect:/recipes/update/" + updatedRecipe.getId();
 	}
 }

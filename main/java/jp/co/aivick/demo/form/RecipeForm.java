@@ -1,6 +1,7 @@
 package jp.co.aivick.demo.form;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class RecipeForm {
 //field	
@@ -8,7 +9,7 @@ public class RecipeForm {
 	
 	@NotEmpty
 	private String recipe_name;
-	@NotEmpty
+	@NotNull
 	private Double cal;
 //getter&setter
 	public Integer getId() {
