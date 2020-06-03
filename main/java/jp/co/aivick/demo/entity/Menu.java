@@ -5,8 +5,6 @@ import org.seasar.doma.*;
 
 import jp.co.aivick.demo.domain.MenuType;
 
-import java.util.List;
-
 
 @Entity
 @Table(name="menu")
@@ -27,8 +25,9 @@ public class Menu{
 	@Column(name= "menuPrice")
 	private Integer menuPrice;
 	
-	@Column(name= "recipeList")
-	private List<Recipe> recipeList;
+	/*
+	 * @Column(name= "recipeList") private Menu_Recipe menuRecipe;
+	 */
 
 //getter&setter
 	public Integer getId() {
@@ -63,13 +62,11 @@ public class Menu{
 		this.menuPrice = menuPrice;
 	}
 
-	public List<Recipe> getRecipeList() {
-		return recipeList;
-	}
-
-	public void setRecipeList(List<Recipe> recipeList) {
-		this.recipeList = recipeList;
-	}
+	/*
+	 * public Menu_Recipe getRecipeList() { return menuRecipe; }
+	 * 
+	 * public void setRecipeList(Menu_Recipe recipe) { this.menuRecipe = recipe; }
+	 */
 	
 	
 }

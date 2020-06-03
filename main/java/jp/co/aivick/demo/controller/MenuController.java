@@ -47,7 +47,7 @@ public class MenuController{
 		menu.setName(menuForm.getName());
 		menu.setMenuType(menuForm.getType());
 		menu.setPrice(menuForm.getPrice());
-		menu.setRecipeList(menuForm.getRecipeList());
+//		menu.setRecipeList(menuForm.getRecipeList());
 		
 		Menu createdMenu = menuService.create(menu);
 		
@@ -62,7 +62,7 @@ public class MenuController{
 		menuForm.setName(menu.getName());
 		menuForm.setPrice(menu.getPrice());
 		menuForm.setType(menu.getType());
-		menuForm.setRecipeList(menu.getRecipeList());
+//		menuForm.setRecipeList(menu.getRecipeList());
 		
 		model.addAttribute("menuForm" ,menuForm);
 		return "menus/update.html";
@@ -78,7 +78,7 @@ public class MenuController{
 		menu.setName(menuForm.getName());
 		menu.setMenuType(menuForm.getType());
 		menu.setPrice(menuForm.getPrice());
-		menu.setRecipeList(menuForm.getRecipeList());
+//		menu.setRecipeList(menuForm.getRecipeList());
 		
 		return "redirect:/menus/update" + id;
 	}

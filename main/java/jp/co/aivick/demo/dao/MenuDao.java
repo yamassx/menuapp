@@ -12,7 +12,7 @@ import jp.co.aivick.demo.entity.Menu;
 public interface MenuDao {
 	
 	@Select
-    Menu find(String menu_id);
+    Menu find(String id);
 
     @Select
     List<Menu> findAll();
