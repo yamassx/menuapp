@@ -17,7 +17,7 @@ import jp.co.aivick.demo.form.RecipeForm;
 import jp.co.aivick.demo.service.RecipeService;
 
 @Controller
-@RequestMapping("/recipe")
+@RequestMapping("/recipes")
 public class RecipeController {
 	@Autowired
 	RecipeService recipeservice;
@@ -31,7 +31,7 @@ public class RecipeController {
 	
 	@GetMapping("/create")
 	public String showCreate(Model model) {
-		model.addAttribute("recipes", new RecipeForm());
+		model.addAttribute("recipeForm", new RecipeForm());
 		return "recipes/create.html";	
 	}
 	
