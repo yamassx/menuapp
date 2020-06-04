@@ -16,6 +16,7 @@ public class Recipe {
 	
 	@Column(name = "cal")
 	private Double cal;
+	
 //getter&setter
 	public Integer getId() {
 		return recipe_id;
