@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+<meta charset="UTF-8">
+<title>menu一覧</title>
+</head>
+<body>
+	<div layout:fragment="content">
+  <h2 >レシピ一覧</h2>
+
+  <table>
+    <thead>
+    <tr>
+      <th></th>
+      <th>名前</th>
+      <th>カロリー</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="menu : ${menus}" th:object="${menu}">
+      <td th:text="*{id}"></td>
+      <td th:text="*{name}"></td>
+      <td th:text="*{type}"></td>
+      <td th:text="*{price}"></td>
+       <td>
+        <a th:href="@{'/manus/update/' + *{id}}">更新</a>
+      </td>
+   </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

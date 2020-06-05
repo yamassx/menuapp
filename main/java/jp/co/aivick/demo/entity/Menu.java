@@ -6,67 +6,48 @@ import org.seasar.doma.*;
 import jp.co.aivick.demo.domain.MenuType;
 
 
-@Entity
+@Entity(immutable = true)
 @Table(name="menu")
-public class Menu{
+public class Menu {
 
 //field
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "menu_id")
-	private Integer menu_id;
+	private final Integer menu_id;
 	
 	@Column(name="menuName")
-	private String menuName;
+	private final String menuName;
 	
 	@Column(name= "menuType")
-	private MenuType menuType;
+	private final MenuType menuType;
 	
 	@Column(name= "menuPrice")
-	private Integer menuPrice;
+	private final Integer menuPrice;
 	
-	/*
-	 * @Column(name= "recipeList") private Menu_Recipe menuRecipe;
-	 */
-
-//getter&setter
-	public Integer getId() {
-		return menu_id;
+//constructor
+	public Menu(Integer menu_id,String menuName, MenuType menuType, Integer menuPrice ){
+		this.menu_id = menu_id;
+		this.menuName = menuName;
+		this.menuPrice = menuPrice;
+		this.menuType = menuType;
 	}
 
-	public void setId(Integer menu_id) {
-		this.menu_id = menu_id;
+//getter
+	public Integer getId() {
+		return menu_id;
 	}
 
 	public String getName() {
 		return menuName;
 	}
 
-	public void setName(String menuName) {
-		this.menuName = menuName;
-	}
-
 	public MenuType getType() {
 		return menuType;
-	}
-
-	public void setMenuType(MenuType menuType) {
-		this.menuType = MenuType.of(menuType.toString());
 	}
 
 	public Integer getPrice() {
 		return menuPrice;
 	}
-
-	public void setPrice(Integer menuPrice) {
-		this.menuPrice = menuPrice;
-	}
-
-	/*
-	 * public Menu_Recipe getRecipeList() { return menuRecipe; }
-	 * 
-	 * public void setRecipeList(Menu_Recipe recipe) { this.menuRecipe = recipe; }
-	 */
-	
-	
+		
 }

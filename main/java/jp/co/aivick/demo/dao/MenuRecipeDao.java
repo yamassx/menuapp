@@ -15,7 +15,7 @@ public interface MenuRecipeDao {
     Menu_Recipe find(String id);
 
     @Select
-    List<MenuRecipe> findAll();
+    List<Menu_Recipe> findAll();
 
     @Insert
     int insert(Menu_Recipe menuRecipe);

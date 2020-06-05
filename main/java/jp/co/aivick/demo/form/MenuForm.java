@@ -1,11 +1,9 @@
 package jp.co.aivick.demo.form;
 
-import java.util.List;
-
 import javax.validation.constraints.NotEmpty;
 
 import jp.co.aivick.demo.domain.MenuType;
-import jp.co.aivick.demo.entity.Recipe;
+import jp.co.aivick.demo.entity.Menu_Recipe;
 
 public class MenuForm {
 //field	
@@ -18,7 +16,7 @@ public class MenuForm {
 	@NotEmpty
 	private Integer menuPrice;
 	@NotEmpty
-	private List<Recipe> recipeList;
+	private Menu_Recipe menuRecipe;
 	
 	public Integer getMenu_id() {
 		return menu_id;
@@ -45,11 +43,11 @@ public class MenuForm {
 	public void setPrice(Integer menuPrice) {
 		this.menuPrice = menuPrice;
 	}
-	public List<Recipe> getRecipeList() {
-		return recipeList;
+	public Menu_Recipe getMenuRecipe() {
+		return menuRecipe;
 	}
-	public void setRecipeList(List<Recipe> recipeList) {
-		this.recipeList = recipeList;
+	public void setRecipeList(Menu_Recipe menuRecipe) {
+		this.menuRecipe = menuRecipe;
 	}
 	
 	

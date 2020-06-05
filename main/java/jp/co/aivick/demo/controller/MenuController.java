@@ -43,11 +43,7 @@ public class MenuController{
 			return "menus/create.html";
 		}
 		
-		Menu menu = new Menu();
-		menu.setName(menuForm.getName());
-		menu.setMenuType(menuForm.getType());
-		menu.setPrice(menuForm.getPrice());
-//		menu.setRecipeList(menuForm.getRecipeList());
+		Menu menu = new Menu(null,menuForm.getName(),menuForm.getType(),menuForm.getPrice());
 		
 		Menu createdMenu = menuService.create(menu);
 		
@@ -74,12 +70,10 @@ public class MenuController{
 		if(bindingResult.hasErrors()) {
 			return "menus/update.html";
 		}
-		Menu menu = menuService.findBy(id);
-		menu.setName(menuForm.getName());
-		menu.setMenuType(menuForm.getType());
-		menu.setPrice(menuForm.getPrice());
-//		menu.setRecipeList(menuForm.getRecipeList());
 		
-		return "redirect:/menus/update" + id;
+		Menu menu = new Menu(null,menuForm.getName(),menuForm.getType(),menuForm.getPrice());
+		Menu updatedMenu = menuService.update(menu);
+	    	
+		return "redirect:/menus/update" + updatedMenu.getId();
 	}
 }
