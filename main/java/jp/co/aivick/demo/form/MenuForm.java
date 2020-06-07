@@ -1,9 +1,12 @@
 package jp.co.aivick.demo.form;
 
-import javax.validation.constraints.NotEmpty;
+//import java.io.Serializable;
 
-import jp.co.aivick.demo.domain.MenuType;
-import jp.co.aivick.demo.entity.Menu_Recipe;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+//import jp.co.aivick.demo.domain.MenuType;
+//import jp.co.aivick.demo.entity.Menu_Recipe;
 
 public class MenuForm {
 //field	
@@ -12,12 +15,15 @@ public class MenuForm {
 	@NotEmpty
 	private String menuName;
 	@NotEmpty
-	private MenuType menuType;
+	//private MenuType menuType;
 	@NotEmpty
+	private String menuType;
+	@NotNull
 	private Integer menuPrice;
-	@NotEmpty
-	private Menu_Recipe menuRecipe;
-	
+
+	/*
+	 * @NotEmpty private Menu_Recipe menuRecipe;
+	 */	
 	public Integer getMenu_id() {
 		return menu_id;
 	}
@@ -28,27 +34,27 @@ public class MenuForm {
 	public String getName() {
 		return menuName;
 	}
-	public void setName(String menuName) {
-		this.menuName = menuName;
+	public void setName(String name) {
+		this.menuName = name;
 	}
-	public MenuType getType() {
+
+	/*
+	 * public MenuType getType() { return menuType; }
+	 */
+	public String getType() {
 		return menuType;
 	}
-	public void setType(MenuType menuType) {
-		this.menuType = menuType;
+	/*
+	 * public void setType(MenuType menuType) { this.menuType = menuType; }
+	 */
+	public void setType(String type) {
+		this.menuType = type;
 	}
 	public Integer getPrice() {
 		return menuPrice;
 	}
-	public void setPrice(Integer menuPrice) {
-		this.menuPrice = menuPrice;
+	public void setPrice(Integer price) {
+		this.menuPrice = price;
 	}
-	public Menu_Recipe getMenuRecipe() {
-		return menuRecipe;
-	}
-	public void setRecipeList(Menu_Recipe menuRecipe) {
-		this.menuRecipe = menuRecipe;
-	}
-	
-	
+
 }
