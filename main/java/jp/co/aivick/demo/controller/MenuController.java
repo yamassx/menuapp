@@ -52,32 +52,36 @@ public class MenuController{
 		Menu createdMenu = menuService.create(menu);
 		
 		return "redirect:/menus/update/" + createdMenu.getId();
-//		return "redirect:/menus/create/";
+	//return "redirect:/menus/create/"+ createdMenu.getId();
 	}
 	
-	@GetMapping("/update/{id}")
-	public String showUpdate(@PathVariable("id") String id, Model model) {
-		Menu menu = menuService.findBy(id);
+	@GetMapping("/update/{menu_id}")
+	public String showUpdate(@PathVariable("menu_id") String menu_id, Model model) {
+		Menu menu = menuService.findBy(menu_id);
 		MenuForm menuForm = new MenuForm();
 	    menuForm.setId(menu.getId());
 		menuForm.setName(menu.getName());
-		menuForm.setPrice(menu.getPrice());
 		menuForm.setType(menu.getType());
+		menuForm.setPrice(menu.getPrice());
 //		menuForm.setRecipeList(menu.getRecipeList());
 		
 		model.addAttribute("menuForm" ,menuForm);
 		return "menus/update.html";
 	}
+
 	
-	/*
-	 * @PostMapping("/update/{id}") public String update(@PathVariable("id") String
-	 * id, @Validated MenuForm menuForm, BindingResult bindingResult) {
-	 * if(bindingResult.hasErrors()) { return "menus/update.html"; }
-	 * 
-	 * Menu menu = new
-	 * Menu(null,menuForm.getName(),menuForm.getType(),menuForm.getPrice()); Menu
-	 * updatedMenu = menuService.update(menu);
-	 * 
-	 * return "redirect:/menus/update" + updatedMenu.getId(); }
-	 */
+	  @PostMapping("/update/{menu_id}") 
+	  public String update(@PathVariable("menu_id") String menu_id, @Validated MenuForm menuForm, BindingResult bindingResult) {
+	  if(bindingResult.hasErrors()) { return "menus/update.html"; }
+	  
+	  Menu menu = menuService.findBy(menu_id);
+	 // Menu(null,menuForm.getName(),menuForm.getType(),menuForm.getPrice());
+	  menu.setMenuName(menuForm.getName());
+	  menu.setMenuPrice(menuForm.getPrice());
+	  menu.setMenuType(menuForm.getType());
+	  Menu updatedMenu = menuService.update(menu);
+	  
+	  return "redirect:/menus/update" + updatedMenu.getId(); 
+	  }
+	 
 }
