@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.seasar.doma.*;
 import org.seasar.doma.boot.ConfigAutowireable;
+//import org.seasar.doma.jdbc.Result;
 
 import jp.co.aivick.demo.entity.Menu;
 
@@ -20,7 +21,7 @@ public interface MenuDao {
     @Insert
     int insert(Menu menu);
 
-    @Update
-    int update(Menu menu);
-
+	/*
+	 * @Update Result<Menu> update(Menu menu);
+	 */
 }

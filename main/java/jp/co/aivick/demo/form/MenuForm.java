@@ -1,9 +1,13 @@
 package jp.co.aivick.demo.form;
 
+//import java.util.List;
+
 //import java.io.Serializable;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+//import jp.co.aivick.demo.entity.Recipe;
 
 //import jp.co.aivick.demo.domain.MenuType;
 //import jp.co.aivick.demo.entity.Menu_Recipe;
@@ -21,9 +25,8 @@ public class MenuForm {
 	@NotNull
 	private Integer menuPrice;
 
-	/*
-	 * @NotEmpty private Menu_Recipe menuRecipe;
-	 */	
+	private String[] recipes;
+	
 	public Integer getMenu_id() {
 		return menu_id;
 	}
@@ -55,6 +58,12 @@ public class MenuForm {
 	}
 	public void setPrice(Integer price) {
 		this.menuPrice = price;
+	}
+	public String[] getRecipes() {
+		return recipes;
+	}
+	public void setRecipes(String[] recipes) {
+		this.recipes = recipes;
 	}
 
 }
