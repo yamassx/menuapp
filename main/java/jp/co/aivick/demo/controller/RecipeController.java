@@ -76,4 +76,13 @@ public class RecipeController {
 		return "redirect:/recipes/list";
 		//return "redirect:/recipes/update/" + updatedRecipe.getId();
 	}
+	@GetMapping("/search")
+	public String search(Model model) {
+		List<Recipe> recipes = recipeservice.findAll();
+		RecipeForm recipeForm = new RecipeForm();
+		model.addAttribute("recipeForm", recipeForm);
+		model.addAttribute("recipes", recipes);
+		
+		return "/recipes/search.html";
+	}
 }
