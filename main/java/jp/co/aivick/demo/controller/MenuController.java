@@ -13,26 +13,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import jp.co.aivick.demo.entity.Menu;
+import jp.co.aivick.demo.entity.Recipe;
 import jp.co.aivick.demo.form.MenuForm;
 import jp.co.aivick.demo.service.MenuService;
+import jp.co.aivick.demo.service.RecipeService;
 
 @Controller
 @RequestMapping("/menus")
 public class MenuController {
 	@Autowired
 	MenuService menuService;
+	@Autowired
+	RecipeService recipeService;
 
 	@GetMapping("/list")
 	public String list(Model model) {
 		List<Menu> menus = menuService.findAll();
 		model.addAttribute("menus", menus);
-
+		
 		return "menus/list.html";
 	}
 
 	@GetMapping("/create")
 	public String showCreate(Model model) {
 		model.addAttribute("menuForm", new MenuForm());
+		List<Recipe> recipes = recipeService.findAll();
+		model.addAttribute("recipes", recipes);
+
 
 		return "menus/create.html";
 	}
@@ -51,9 +58,10 @@ public class MenuController {
 		menu.setMenuPrice(menuForm.getPrice());
 		menu.setMenuType(menuForm.getType());
 
-		Menu createdMenu = menuService.create(menu, menuForm.getRecipes());
-
-		return "redirect:/menus/update/" + createdMenu.getId();
+		//Menu createdMenu = menuService.create(menu, menuForm.getRecipes());
+		menuService.create(menu, menuForm.getRecipes());
+		return "redirect:/menus/create/";
+		//return "redirect:/menus/update/" + createdMenu.getId();
 		// return "redirect:/menus/create/"+ createdMenu.getId();
 	}
 
